@@ -1,0 +1,40 @@
+﻿@{
+    ViewData["Title"] = "Index";
+}
+
+<header class="p10">
+    APP下载
+</header>
+<section class="wrapper">
+    <div class="wrapperCenter">
+        <div>
+            <div class="iconLogo">
+                <a href="#" class="downloadUrl">
+                    <img src="@Url.Content(ViewBag.logo)" class="img-fluid" runat="server" id="logo" />
+                </a>
+            </div>
+            <p class="p10 mb30">※部分浏览器可能无法安装，建议使用Safari或chrome浏览器操作</p>
+            <a href="@ViewData["link"]" class="checkBtn p10" runat="server" id="link">
+                <i class="fas fa-circle-notch mr10"></i>
+                <span>请到桌面查看进度，若未出现下载图示，点击重新开始下载</span>
+            </a>
+            <p class="lineHeight18 p10">
+                安装后请打开手机设置<br />
+                IOS请到 通用-设备管理-选择-信任 才能使用
+            </p>
+        </div>
+    </div>
+</section>
+
+<footer class="p10">
+</footer>
+@section scripts
+{
+    <script>
+        $(function () {
+            let url = $("#link").attr("href");
+            $(".downloadUrl").attr("href", url);
+            location.href = url;
+        })
+    </script>
+}
